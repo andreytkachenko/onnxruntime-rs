@@ -162,7 +162,7 @@ impl SessionOptions {
     }
     
     pub fn available_providers() -> Vec<String> {
-        let mut providers_array: *mut *mut i8 = std::ptr::null_mut();
+        let mut providers_array: *mut *mut c_char = std::ptr::null_mut();
         let mut providers_len: i32 = 0;
 
         call!(@unsafe @expect GetAvailableProviders, &mut providers_array, &mut providers_len);
